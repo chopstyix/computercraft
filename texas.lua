@@ -8,7 +8,7 @@ local card = paintutils.loadImage("card.nfp")
 local cardBack = paintutils.loadImage("cardback.nfp")
 
 --# Configure monitors
-touchMon.setTextScale(0.5)
+mainMon.setTextScale(0.5)
 infoMon.setTextScale(0.5)
 
 --# Functions
