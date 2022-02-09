@@ -50,4 +50,5 @@ while true do
   drawMain()
   _,side,x,y = os.pullEvent("monitor_touch")
   drawInfo()
+end
 --# End Main Code
