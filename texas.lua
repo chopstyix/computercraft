@@ -31,16 +31,26 @@ function drawInfo()
   term.clearLine()
   term.setBackgroundColor(colors.green)
   term.clear()
-  term.write("X: "..x.."  Y: "..y)
+  term.write("X: "..tx.."  Y: "..ty)
   term.redirect(oldMon)
 end
 
+function touchHitbox(x1,y1,x2,y2)
+  if (tx >= x1) and (tx <= x2) and (ty >= y1) and (ty <= y2) then
+    return true
+  else
+    return false
+end
+  
 function drawMain()
   local oldMon = term.redirect(mainMon)
+  local width, height = getImageSize(card)
   term.setCursorPos(1,1)
   term.clearLine()
   term.setBackgroundColor(colors.green)
   term.clear()
+  -- If player taps card 1, it will flip the card.
+  if (tx >= 5) and (tx <= (5+width)) and then
   paintutils.drawImage(cardBack,5,2) --# Card 1
   paintutils.drawImage(card,20,2) --# Card 2
 end
@@ -48,7 +58,7 @@ end
 --# Begin Main Code
 while true do
   drawMain()
-  _,side,x,y = os.pullEvent("monitor_touch")
+  _,side,tx,ty = os.pullEvent("monitor_touch")
   drawInfo()
 end
 --# End Main Code
